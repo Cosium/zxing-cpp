@@ -66,16 +66,6 @@ else()
     add_definitions(-DNO_ICONV=1)
 endif()
 
-# Add OpenCV cli executable
-if(OpenCV_FOUND)
-    file(GLOB_RECURSE OPENCV_ZXING_FILES
-        "./opencv-cli/src/*.cpp"
-        "./opencv-cli/src/*.h"
-    )
-    add_executable(zxing-cv ${OPENCV_ZXING_FILES})
-    target_link_libraries(zxing-cv libzxing ${OpenCV_LIBRARIES})
-endif()
-
 # Add cli executable.
 file(GLOB_RECURSE ZXING_FILES
     "./cli/src/*.cpp"
